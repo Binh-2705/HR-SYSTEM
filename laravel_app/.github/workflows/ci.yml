@@ -1,0 +1,46 @@
+name: Laravel CI
+
+on:
+  push:
+    branches: [ "main", "develop" ]
+  pull_request:
+    branches: [ "*" ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: mbstring, bcmath, pdo_mysql
+          coverage: none
+
+      - name: Copy .env
+        run: cp .env.example .env
+        working-directory: laravel_app
+
+      - name: Install dependencies
+        run: composer install --no-interaction --prefer-dist
+        working-directory: laravel_app
+
+      - name: Generate app key
+        run: php artisan key:generate
+        working-directory: laravel_app
+
+      - name: Run Pint
+        run: composer lint
+        working-directory: laravel_app
+
+      - name: Run Larastan
+        run: composer analyse
+        working-directory: laravel_app
+
+      - name: Run tests
+        run: composer test
+        working-directory: laravel_app

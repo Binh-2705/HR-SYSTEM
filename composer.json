@@ -1,0 +1,5 @@
+{
+    "scripts": {
+        "db:migrate": "php scripts/db/migrate.php"
+    }
+}

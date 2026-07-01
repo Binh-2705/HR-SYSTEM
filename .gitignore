@@ -1,0 +1,11 @@
+.env
+logs/
+uploads/cv/
+vendor/
+.vscode/
+.venv/
+
+laravel_app/vendor.zip
+*.log
+*.tmp
+*.cache

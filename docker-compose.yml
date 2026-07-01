@@ -1,0 +1,46 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    container_name: duan2-web
+    ports:
+      - "8080:80"
+    volumes:
+      - ./:/var/www/html
+    depends_on:
+      db:
+        condition: service_healthy
+    networks:
+      - duan2-net
+
+  db:
+    image: mysql:8.0
+    container_name: duan2-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: quanlynhansu
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_HOST: "%"
+    ports:
+      - "3307:3306"
+    command: --default-authentication-plugin=mysql_native_password
+    volumes:
+      - db_data:/var/lib/mysql
+      # SQL dump import is disabled by default because current dump has MySQL syntax errors.
+      # Import manually after DB is up, or fix dump before enabling this line.
+      # - ./quanlynhansu.sql:/docker-entrypoint-initdb.d/00-init.sql:ro
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-proot"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+    networks:
+      - duan2-net
+
+volumes:
+  db_data:
+
+networks:
+  duan2-net:
+    driver: bridge
