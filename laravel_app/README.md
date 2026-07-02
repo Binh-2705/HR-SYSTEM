@@ -14,7 +14,7 @@ Laravel app nay dong vai tro web app chinh, web console quan tri du lieu, va API
 - `payroll`: bang luong, bac luong, ngach luong, hop dong, lich su luong
 - `attendance`: cham cong, cau hinh cham cong, tong hop cong theo view
 - `recruitment`: ung vien, dot tuyen dung, ho so ung tuyen, lich phong van, danh gia phong van
-- `training`: khoa dao tao, tham gia dao taooo
+- `training`: khoa dao tao, tham gia dao tao
 - `reporting`: bao cao
 - `chatbot`: sessions, action drafts, messages
 
