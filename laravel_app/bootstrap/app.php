@@ -1,5 +1,5 @@
 <?php
-//dungggggggggg
+//3456789
 
 
 $app = new Illuminate\Foundation\Application(
@@ -7,6 +7,7 @@ $app = new Illuminate\Foundation\Application(
 );
 
 //quan ly service container
+//dsakjdjsak
 $app->singleton(
     Illuminate\Contracts\Http\Kernel::class,
     App\Http\Kernel::class
