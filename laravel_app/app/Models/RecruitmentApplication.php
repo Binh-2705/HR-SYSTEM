@@ -47,7 +47,7 @@ class RecruitmentApplication extends Model
                 'dt.ViTriTuyenDung',
             ]);
     }
-//thk cho bình không cấp quyền cho bố
+
     public function scopeApplyFilters(Builder $query, array $filters): Builder
     {
         return $query

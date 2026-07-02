@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
-
+//binh oi cap quyen cho toi
 class TrainingParticipant extends Model
 {
     protected $table = 'thamgiadaotao';
