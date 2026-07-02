@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 DELIMITER $$
 --
 -- Thủ tục
---
+
 CREATE DEFINER=`root`@`localhost` PROCEDURE `Tao50BaoHiem` ()   BEGIN
     DECLARE i INT DEFAULT 1;
     DECLARE v_tien_bh DECIMAL(15,2);
