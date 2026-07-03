@@ -12,6 +12,7 @@ $app->singleton(
     App\Http\Kernel::class
 );
 //quocdz
+//aloooo
 $app->singleton(
     Illuminate\Contracts\Console\Kernel::class,
     App\Console\Kernel::class
